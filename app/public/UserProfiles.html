@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="index.html">Noah's Site</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="index.html">Home<span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="UserProfiles.html">Users<span class="sr-only">(current)</span></a>
+          </li>      <li class="nav-item active">
+            <a class="nav-link" href="BookTable.html">Books<span class="sr-only">(current)</span></a>
+          </li>
+        </ul>
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+      </div>
+    </nav>
+  </head>
+  <body>
+ <div class="container col-11">
+  <h3 class="descriptor">Users</h3>
+ <div id="accordion" class="accordion" id="accordionExample">
+  <button class="btn btn-primary" v-on:click="fetchUser()">Get New Users</button><br>
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <a v-bind:href="user1.picture.large"><img id="avatar-image" v-bind:src="user1.picture.large"></a>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{user1.name.first}} {{user1.name.last}}
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <b>Name:</b> {{user1.name.first}} {{user1.name.last}} <br>
+        <b>Country of Origin:</b> {{user1.location.country}} <br>
+        <b>Age:</b> {{user1.dob.age}} <br>
+        <b>Email:</b> <a v-bind:href="'mailto:' + user1.email"> {{user1.email}} </a> <br>
+        <b>Image Source:</b> {{user1.picture.large}}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h2 class="mb-0">
+        <a v-bind:href="user2.picture.large"><img id="avatar-image" v-bind:src="user2.picture.large"></a>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          {{user2.name.first}} {{user2.name.last}}
+        </button>
+      </h2>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+      <div class="card-body">
+        <b>Name:</b> {{user2.name.first}} {{user2.name.last}} <br>
+        <b>Country of Origin:</b> {{user2.location.country}} <br>
+        <b>Age:</b> {{user2.dob.age}} <br>
+        <b>Email:</b> <a v-bind:href="'mailto:' + user2.email"> {{user2.email}} </a> <br>
+        <b>Image Source:</b> {{user2.picture.large}}
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h2 class="mb-0">
+        <a v-bind:href="user3.picture.large"><img id="avatar-image" v-bind:src="user3.picture.large"></a>
+        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          {{user3.name.first}} {{user3.name.last}}
+        </button>
+      </h2>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+      <div class="card-body">
+        <b>Name:</b> {{user3.name.first}} {{user3.name.last}} <br>
+        <b>Country of Origin:</b> {{user3.location.country}} <br>
+        <b>Age:</b> {{user3.dob.age}} <br>
+        <b>Email:</b> <a v-bind:href="'mailto:' + user3.email"> {{user3.email}} </a> <br>
+        <b>Image Source:</b> {{user3.picture.large}}
+      </div>
+    </div>
+  </div>
+</div>
+ </div>
+</div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="js/index.app.js"></script>
+  </body>
+</html>
