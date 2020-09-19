@@ -35,17 +35,17 @@
  <button class="btn btn-primary" v-on:click="fetchUser()">Get New Users</button>
 
 
-  <div class="card" v-for="result in resultList">
-    <div class="card-header" id="headingOne">
+  <div class="card" v-for="(result, index) in resultList">
+    <div class="card-header" id="headingOne" >
       <h2 class="mb-0">
         <a v-bind:href="result.picture.large"><img id="avatar-image" v-bind:src="result.picture.large"></a>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="btn btn-link" type="button" data-toggle="collapse" v-bind:data-target="'#collapse'+ index" aria-expanded="true" aria-controls="collapseOne">
           {{result.name.first}} {{result.name.last}}
         </button>
       </h2>
     </div>
 
-    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div v-bind:id="'collapse'+ index" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body" v-if="resultList.length">
         <b>Name:</b> {{result.name.first}} {{result.name.last}} <br>
         <b>Country of Origin:</b> {{result.location.country}} <br>
