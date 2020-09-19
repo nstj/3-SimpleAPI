@@ -7,15 +7,11 @@ var app = new Vue({
   created() {
     this.fetchUser();
   },
+  
   methods: {
     fetchUser: function(){
-    fetch("https://randomuser.me/api/?results=3")
+    fetch("https://randomuser.me/api/?results=50")
     .then( response => response.json() )
-    // .then(data => {
-    //   var userdata = data.results[0];
-    //   console.log(userdata);
-      
-    // })
     .then( json => {this.resultList = json.results;}
     );
     }
