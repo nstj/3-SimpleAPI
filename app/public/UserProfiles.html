@@ -35,64 +35,24 @@
  <button class="btn btn-primary" v-on:click="fetchUser()">Get New Users</button>
 
 
-  <div class="card">
+  <div class="card" v-for="result in resultList">
     <div class="card-header" id="headingOne">
       <h2 class="mb-0">
-        <a v-if="resultList.length" v-bind:href="resultList[0].picture.large"><img id="avatar-image" v-if="resultList.length" v-bind:src="resultList[0].picture.large"></a>
-        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" v-if="resultList.length">
-          {{resultList[0].name.first}} {{resultList[0].name.last}}
+        <a v-bind:href="result.picture.large"><img id="avatar-image" v-bind:src="result.picture.large"></a>
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          {{result.name.first}} {{result.name.last}}
         </button>
       </h2>
     </div>
 
     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body" v-if="resultList.length">
-        <b>Name:</b> {{resultList[0].name.first}} {{resultList[0].name.last}} <br>
-        <b>Country of Origin:</b> {{resultList[0].location.country}} <br>
-        <b>DOB:</b> {{resultList[0].dob.date.slice(0,10)}}<br>
-        <b>Age:</b> {{resultList[0].dob.age}} <br>
-        <b>Email:</b> <a v-if="resultList.length" v-bind:href="'mailto:' + resultList[0].email"> {{resultList[0].email}} </a> <br>
-        <b>Image Source:</b> {{resultList[0].picture.large}}
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingTwo">
-      <h2 class="mb-0">
-        <a v-if="resultList.length" v-bind:href="resultList[1].picture.large"><img id="avatar-image" v-bind:src="resultList[1].picture.large"></a>
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" v-if="resultList.length">
-          {{resultList[1].name.first}} {{resultList[1].name.last}}
-        </button>
-      </h2>
-    </div>
-    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-      <div class="card-body" v-if="resultList.length">
-        <b>Name:</b> {{resultList[1].name.first}} {{resultList[1].name.last}} <br>
-        <b>Country of Origin:</b> {{resultList[1].location.country}} <br>
-        <b>DOB:</b> {{resultList[1].dob.date.slice(0,10)}}<br>
-        <b>Age:</b> {{resultList[1].dob.age}} <br>
-        <b>Email:</b> <a v-if="resultList.length" v-bind:href="'mailto:' + resultList[1].email"> {{resultList[1].email}} </a> <br>
-        <b>Image Source:</b> {{resultList[1].picture.large}}
-      </div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-header" id="headingThree">
-      <h2 class="mb-0">
-        <a v-if="resultList.length" v-bind:href="resultList[2].picture.large"><img id="avatar-image" v-bind:src="resultList[2].picture.large"></a>
-        <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" v-if="resultList.length">
-          {{resultList[2].name.first}} {{resultList[2].name.last}}
-        </button>
-      </h2>
-    </div>
-    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-      <div class="card-body" v-if="resultList.length">
-        <b>Name:</b> {{resultList[2].name.first}} {{resultList[2].name.last}} <br>
-        <b>Country of Origin:</b> {{resultList[2].location.country}} <br>
-        <b>DOB:</b> {{resultList[2].dob.date.slice(0,10)}}<br>
-        <b>Age:</b> {{resultList[2].dob.age}} <br>
-        <b>Email:</b> <a v-if="resultList.length" v-bind:href="'mailto:' + resultList[2].email"> {{resultList[2].email}} </a> <br>
-        <b>Image Source:</b> {{resultList[2].picture.large}}
+        <b>Name:</b> {{result.name.first}} {{result.name.last}} <br>
+        <b>Country of Origin:</b> {{result.location.country}} <br>
+        <b>DOB:</b> {{result.dob.date.slice(0,10)}}<br>
+        <b>Age:</b> {{result.dob.age}} <br>
+        <b>Email:</b> <a v-bind:href="'mailto:' + result.email">{{result.email}}</a> <br>
+        <b>Image Source:</b> {{result.picture.large}}
       </div>
     </div>
   </div>
