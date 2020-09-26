@@ -5,12 +5,12 @@ var app = new Vue({
   },
 
   created() {
-    this.fetchUser();
+    this.fetchUser(50);
   },
   
   methods: {
-    fetchUser: function(){
-    fetch("https://randomuser.me/api/?results=50")
+    fetchUser: function(numUsers){
+    fetch("https://randomuser.me/api/?results=" + numUsers)
     .then( response => response.json() )
     .then( json => {this.resultList = json.results;}
     );

@@ -33,7 +33,9 @@
   
  <div id="accordion" class="accordion" id="accordionExample">
   <h3 class="descriptor">Users ({{resultList.length}})</h3>
- <button class="btn btn-primary" v-on:click="fetchUser()">Get New Users</button>
+  <form v-on:submit.prevent="fetchUser(50)">
+ <button class="btn btn-primary" type="submit">Get New Users</button>
+</form>
 
 
   <div class="card" v-for="(result, index) in resultList">
@@ -48,12 +50,12 @@
 
     <div v-bind:id="'collapse'+ index" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body" v-if="resultList.length">
-        <b>Name:</b> {{result.name.first}} {{result.name.last}} <br>
-        <b>Country of Origin:</b> {{result.location.country}} <br>
-        <b>DOB:</b> {{result.dob.date.slice(0,10)}}<br>
-        <b>Age:</b> {{result.dob.age}} <br>
-        <b>Email:</b> <a v-bind:href="'mailto:' + result.email">{{result.email}}</a> <br>
-        <b>Image Source:</b> {{result.picture.large}}
+        <strong>Name:</strong> {{result.name.first}} {{result.name.last}} <br>
+        <strong>Country of Origin:</strong> {{result.location.country}} <br>
+        <strong>DOB:</strong> {{result.dob.date.slice(0,10)}}<br>
+        <strong>Age:</strong> {{result.dob.age}} <br>
+        <strong>Email:</strong> <a v-bind:href="'mailto:' + result.email">{{result.email}}</a> <br>
+        <strong>Image Source:</strong> {{result.picture.large}}
       </div>
     </div>
   </div>
