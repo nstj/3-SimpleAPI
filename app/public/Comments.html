@@ -31,7 +31,7 @@
   </head>
   <body>
 <div class="container col-11" id="vueApp">
-<table class="table" data-sortable>
+<table class="table" id="commentTable" data-sortable>
   <thead>
     <tr>
       
@@ -39,8 +39,8 @@
       <th scope="col">Comment</th>
     </tr>
   </thead>
-  <tbody>
-    <tr v-for="comment in CommentList">
+  <tbody id="commentTableBody">
+    <tr v-for="comment in commentList" v-if="commentList.length">
       <td>{{comment.id}}</td>
       <td>{{comment.commentText}}</td>
     </tr>
@@ -50,12 +50,12 @@
 
 <br>
 <h3 class="descriptor"> Add Comment: </h3>
-<form>
+<form v-on:submit.prevent="createComment" id="newCommentForm">
   <div class="form-group">
-    <label for="inputComment">Comment</label>
-    <input type="text" class="form-control" id="inputComment" placeholder="Enter Comment">
+    <label for="commentText">Comment</label>
+    <input type="text" v-model="newComment.commentText" class="form-control" id="commentText" placeholder="Enter Comment">
   </div>
-  <button type="submit" class="btn btn-primary">Add Comment</button>
+  <button type="submit" id="submitNewComment" class="btn btn-primary">Add Comment</button>
 </form>
 </div>
 
