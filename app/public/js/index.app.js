@@ -1,7 +1,7 @@
 var app = new Vue({
-  el: '.accordion',
+  el: '#vueApp',
   data: {
-    resultList: []
+    CommentList: []
   },
 
   created() {
